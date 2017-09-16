@@ -17,6 +17,8 @@ hpc_feb$DateTime <- as.POSIXct(paste(hpc_feb$Date, hpc_feb$Time))
 
 message("plotting")
 
+png("plot4.png", width = 480, height = 480)
+
 par(mfcol=c(2,2))
 plot(Global_active_power ~ DateTime, data = hpc_feb, type="l", ylab = "Global Active Power", xlab="")
 
@@ -29,3 +31,5 @@ legend("topright", legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"
 plot(Voltage ~ DateTime, data = hpc_feb, type="l", xlab="datetime")
 
 plot(Global_reactive_power ~ DateTime, data = hpc_feb, type="l", xlab="datetime")
+
+dev.off()
