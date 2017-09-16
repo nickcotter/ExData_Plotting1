@@ -14,4 +14,10 @@ message("loading feb 1st & 2nd 2007 data into hpc_feb data frame")
 hpc$Date <- as.Date(hpc$Date, format("%d/%m/%Y"))
 hpc_feb <- subset(hpc, Date >= as.Date("2007-02-01") & Date <= as.Date("2007-02-02"))
 
+message("plotting")
+
+png("plot1.png", width = 480, height = 480)
+
 hist(hpc_feb$Global_active_power, col="red", xlab = "Global Active Power (kilowatts)", main = "Global Active Power")
+
+dev.off()
