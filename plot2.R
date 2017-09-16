@@ -15,4 +15,10 @@ hpc$Date <- as.Date(hpc$Date, format("%d/%m/%Y"))
 hpc_feb <- subset(hpc, Date >= as.Date("2007-02-01") & Date <= as.Date("2007-02-02"))
 hpc_feb$DateTime <- as.POSIXct(paste(hpc_feb$Date, hpc_feb$Time))
 
+message("plotting")
+
+png("plot2.png", width = 480, height = 480)
+
 plot(Global_active_power ~ DateTime, data = hpc_feb, type="l", ylab = "Global Active Power (kilowatts)", xlab="")
+
+dev.off()
