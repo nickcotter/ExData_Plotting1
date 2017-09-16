@@ -15,4 +15,7 @@ hpc$Date <- as.Date(hpc$Date, format("%d/%m/%Y"))
 hpc_feb <- subset(hpc, Date >= as.Date("2007-02-01") & Date <= as.Date("2007-02-02"))
 hpc_feb$DateTime <- as.POSIXct(paste(hpc_feb$Date, hpc_feb$Time))
 
-plot(Global_active_power ~ DateTime, data = hpc_feb, type="l", ylab = "Global Active Power (kilowatts)", xlab="")
+plot(Sub_metering_1 ~ DateTime, data = hpc_feb, type="l", ylab = "Energy sub metering", xlab="")
+points(Sub_metering_2 ~ DateTime, data = hpc_feb, type="l", col="red")
+points(Sub_metering_3 ~ DateTime, data = hpc_feb, type="l", col="blue")
+legend("topright", legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col=c("black", "red", "blue"), lty=1)
